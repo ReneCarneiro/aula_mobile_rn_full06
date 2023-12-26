@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet, Text, View } from "react-native"
 
-import { User } from "../model/user"
+import { User } from '../model/user'
 
 type Props = {
     user: User,
@@ -10,9 +10,10 @@ type Props = {
 export default function ListTile({ user, onPress }: Props) {
     return (
         <View style={styles.container} onTouchEnd={() => onPress(user)} >
-            <Text style={styles.title}>{user.name}</Text>
-            <Text style={styles.subTitle}>{user.username}</Text>
-        </View>
+        <Text style={styles.title}>{user.name}</Text>
+        <Text style={styles.subTitle}>{user.username}</Text>
+    </View>
+
     )
 }
 

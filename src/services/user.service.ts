@@ -50,6 +50,22 @@ class UserService {
         }
     }
 
+    public async delete() {
+        const response = await fetch(this.url, {
+            method: 'DELETE',
+            headers: await this.getHeaders()
+        })
+
+        const data = await response.json()
+
+        if (response.status === 200) {
+            return data
+        
+        } else if (response.status === 401) {
+            throw new Error(data.message)
+        }
+    }
+
     public async update(id: number, user: User) {
         const response = await fetch(`${this.url}/${id}`, {
             method: 'PUT',
